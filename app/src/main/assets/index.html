@@ -1,29 +1,28 @@
 <!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#073B7A"><title>PRM Incentive Calculator</title>
+<meta name="theme-color" content="#d41472"><title>PRM Incentive Calculator</title>
 <style>
-:root{--navy:#073B7A;--blue:#0b78b8;--bg:#f4f7fb;--card:#fff;--line:#d9e2ec;--text:#17212b;--muted:#667085;--input:#fff6d6;--green:#e5f4e9;--red:#fde8e8}
-*{box-sizing:border-box} body{margin:0;background:var(--bg);font-family:Arial,Helvetica,sans-serif;color:var(--text)}
-.wrap{max-width:760px;margin:auto;padding:12px}
-.header{background:var(--navy);color:white;border-radius:14px;padding:16px;margin-bottom:10px}
-.header h1{font-size:22px;margin:0 0 5px}.header p{margin:0;font-size:14px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0}
-h2{font-size:17px;margin:0 0 12px;color:var(--navy)}
-.grid{display:grid;grid-template-columns:minmax(0,1fr) 105px 85px;gap:8px;align-items:center}
-.row{display:contents}.label{padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}.points{padding:9px 0;text-align:right;border-bottom:1px solid var(--line);font-weight:bold}
-input,select{width:100%;min-height:44px;border:1px solid #c8d2dc;border-radius:9px;padding:8px 10px;font-size:16px;background:var(--input);color:var(--text)}
-input:focus,select:focus{outline:2px solid #8ecae6;outline-offset:1px}
+:root{--pink:#d41472;--pink-dark:#b30d5d;--pink-soft:#fde8f2;--pink-pale:#fff7fb;--bg:#fff7fb;--card:#fff;--line:#f0c8da;--text:#17212b;--muted:#667085;--input:#fffafd;--green:#e7f6eb;--red:#fde8e8}
+*{box-sizing:border-box} body{margin:0;background:linear-gradient(180deg,#fff 0%,var(--bg) 100%);font-family:Arial,Helvetica,sans-serif;color:var(--text)}
+.wrap{max-width:760px;margin:auto;padding:8px}
+.header{background:#fff;color:var(--pink);border:1px solid var(--line);border-radius:14px;padding:10px 14px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:72px;box-shadow:0 3px 12px rgba(212,20,114,.08);border-bottom:4px solid var(--pink)}
+.header h1{font-size:26px;letter-spacing:.5px;margin:0;font-weight:800}.header p{display:none}.brand-logo{width:180px;height:58px;object-fit:contain;object-position:right center;display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 3px 12px rgba(212,20,114,.06)}
+h2{font-size:17px;margin:0 0 12px;color:var(--pink)}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) 105px 85px;gap:8px;align-items:center}.row{display:contents}.label{padding:9px 0;border-bottom:1px solid #f2dce7;font-size:14px}.points{padding:9px 0;text-align:right;border-bottom:1px solid #f2dce7;font-weight:bold}
+.th{color:var(--pink);font-weight:bold;font-size:12px}
+input,select{width:100%;min-height:44px;border:1px solid #e6b8cf;border-radius:9px;padding:8px 10px;font-size:16px;background:var(--input);color:var(--text)}
+input:focus,select:focus{outline:2px solid #ed8fba;outline-offset:1px;border-color:var(--pink)}
 .small{font-size:12px;color:var(--muted)}.tablehead{font-size:11px;color:var(--muted);font-weight:bold;padding-bottom:5px}
-.result{background:var(--green);border:1px solid #b9ddc2;border-radius:14px;padding:15px;margin-top:12px}
-.resultline{display:flex;justify-content:space-between;gap:12px;margin:7px 0}.big{font-size:25px;font-weight:800}
+.result{background:linear-gradient(135deg,#fff,#fff3f8);border:1px solid #efbdd3;border-radius:14px;padding:15px;margin-top:12px}.resultline{display:flex;justify-content:space-between;gap:12px;margin:7px 0}.big{font-size:25px;font-weight:800;color:var(--pink)}
 .status{padding:12px;border-radius:10px;font-weight:800;text-align:center;margin-top:10px}.ok{background:var(--green);color:#176b2d}.bad{background:var(--red);color:#9b1c1c}
-button{width:100%;min-height:44px;border:0;border-radius:9px;background:var(--navy);color:white;font-size:16px;font-weight:bold;margin-top:8px}
-details{margin-top:10px}summary{font-weight:bold;color:var(--navy);cursor:pointer;padding:6px 0}
-@media(max-width:480px){.grid{grid-template-columns:minmax(0,1fr) 86px 66px}.wrap{padding:8px}.card{padding:11px}.label{font-size:13px}}
+button{width:100%;min-height:46px;border:0;border-radius:9px;background:linear-gradient(90deg,var(--pink-dark),var(--pink));color:white;font-size:16px;font-weight:bold;margin-top:8px;box-shadow:0 4px 10px rgba(212,20,114,.2)}
+details{margin-top:10px}summary{font-weight:bold;color:var(--pink);cursor:pointer;padding:6px 0}
+@media(max-width:480px){.grid{grid-template-columns:minmax(0,1fr) 86px 66px}.wrap{padding:7px}.card{padding:11px}.label{font-size:13px}.header{min-height:62px;padding:8px 10px}.header h1{font-size:23px}.brand-logo{width:155px;height:48px}}
 </style></head>
 <body><div class="wrap">
-<div class="header"><h1>PRM Incentive Calculator</h1><p>1 Point = ₹50 • Enter achievements only</p></div>
+<div class="header"><h1>PRM</h1><img class="brand-logo" src="jana_logo.png" alt="Jana Small Finance Bank"></div>
 
 <div class="card"><h2>Cross Sell / Service to Sales</h2><div class="grid">
 <div class="th">Product</div><div class="th">Achievement</div><div class="th">Points</div>
